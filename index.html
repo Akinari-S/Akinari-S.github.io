@@ -31,13 +31,13 @@
     <title>柴尾 亮成 - Akinari Shibao</title>
     <meta
       name="description"
-      content="柴尾亮成の研究・アウトプット・経歴をまとめたプロフィールサイト。"
+      content="柴尾亮成のプロフィール、スキル、プロジェクト経験をまとめたサイト。"
     />
     <meta name="author" content="柴尾亮成" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link href="./css/bootstrap.min.css" rel="stylesheet" />
@@ -48,190 +48,552 @@
     <div class="container">
       <header class="navbar">
         <h1>柴尾 亮成 / Akinari Shibao</h1>
-        <nav class="nav-links">
-          <a href="index.html">日本語</a>
-          <a href="mailto:shibao@saga-lab.org">Contact</a>
-        </nav>
+        <div class="nav-group">
+          <nav class="nav-links">
+            <a href="#work" data-view="work-view">
+              <span data-lang-text="ja">職務経験</span>
+              <span data-lang-text="en" class="is-hidden">Work Experience</span>
+            </a>
+            <a href="#student" data-view="student-view">
+              <span data-lang-text="ja">学生・研究</span>
+              <span data-lang-text="en" class="is-hidden">Education & Research</span>
+            </a>
+            <a href="mailto:shibao@saga-lab.org">
+              <span data-lang-text="ja">連絡先</span>
+              <span data-lang-text="en" class="is-hidden">Contact</span>
+            </a>
+          </nav>
+          <div class="lang-toggle" role="tablist" aria-label="Language">
+            <button
+              class="lang-button active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-lang="ja"
+            >
+              JP
+            </button>
+            <button
+              class="lang-button"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-lang="en"
+            >
+              EN
+            </button>
+          </div>
+        </div>
       </header>
 
       <section class="hero">
-        <img src="img/shibao.jpg" alt="柴尾亮成のプロフィール写真" />
+        <img src="img/shibao.jpg" alt="柴尾亮成 / Akinari Shibao profile photo" />
         <div>
-          <h2>Haptics × VR を軸に、身体感覚を拡張する研究者</h2>
+          <h2>
+            <span data-lang-text="ja">WebアプリのUI設計とフロントエンド実装を担うエンジニア</span>
+            <span data-lang-text="en" class="is-hidden">
+              Frontend engineer focused on UI design and web app implementation
+            </span>
+          </h2>
           <p>
-            熊本大学大学院で触覚・聴覚インタフェースを研究。揺動空気噴流による
-            触覚提示や音楽の低周波振動再現など、身体に響く体験設計に取り組んでいます。
+            <span data-lang-text="ja">
+              総合コンサルティングファームにて、要件定義・画面設計から実装・テストまで担当。
+              ネイティブアプリ内Webviewで動くSPAの新規開発や刷新、入力画面の設計・実装、共通コンポーネント化などを
+              通じて品質と開発効率の改善に取り組んでいます。
+            </span>
+            <span data-lang-text="en" class="is-hidden">
+              At a global consulting firm, I cover requirements, UI design, implementation,
+              and testing. I build and refresh SPAs running inside native-app Webviews,
+              design and implement data-entry screens, and develop shared components to
+              improve quality and delivery efficiency.
+            </span>
           </p>
           <div class="hero-actions">
-            <a class="button" href="#research">研究テーマ</a>
-            <a class="button secondary" href="#publications">文献一覧</a>
-            <a class="button secondary" href="#contact">連絡先</a>
+            <a class="button" href="#work">
+              <span data-lang-text="ja">プロジェクト</span>
+              <span data-lang-text="en" class="is-hidden">Projects</span>
+            </a>
+            <a class="button secondary" href="#skills">
+              <span data-lang-text="ja">スキル</span>
+              <span data-lang-text="en" class="is-hidden">Skills</span>
+            </a>
+            <a class="button secondary" href="#contact">
+              <span data-lang-text="ja">連絡先</span>
+              <span data-lang-text="en" class="is-hidden">Contact</span>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="section" id="profile">
-        <h3>所属・活動</h3>
-        <p class="lead">研究とコミュニティ活動の中心をまとめています。</p>
-        <div class="grid">
-          <article class="card">
-            <h4>所属</h4>
-            <ul>
+      <div class="view-toggle" role="tablist" aria-label="表示切り替え">
+        <button
+          class="toggle-button active"
+          type="button"
+          id="tab-work"
+          role="tab"
+          aria-controls="work-view"
+          aria-selected="true"
+          data-target="work-view"
+        >
+          <span data-lang-text="ja">職務経験</span>
+          <span data-lang-text="en" class="is-hidden">Work Experience</span>
+        </button>
+        <button
+          class="toggle-button"
+          type="button"
+          id="tab-student"
+          role="tab"
+          aria-controls="student-view"
+          aria-selected="false"
+          data-target="student-view"
+        >
+          <span data-lang-text="ja">学生・研究</span>
+          <span data-lang-text="en" class="is-hidden">Education & Research</span>
+        </button>
+      </div>
+
+      <div id="work-view" role="tabpanel" aria-labelledby="tab-work">
+        <section class="section" id="profile">
+          <h3>
+            <span data-lang-text="ja">プロフィール</span>
+            <span data-lang-text="en" class="is-hidden">Profile</span>
+          </h3>
+          <div class="grid">
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">職務概要</span>
+                <span data-lang-text="en" class="is-hidden">Role Summary</span>
+              </h4>
+              <ul>
+                <li>
+                  <span data-lang-text="ja">総合コンサルティングファーム / フロントエンドエンジニア</span>
+                  <span data-lang-text="en" class="is-hidden">Frontend engineer at a global consulting firm</span>
+                </li>
+                <li>
+                  <span data-lang-text="ja">要件定義〜画面設計〜実装〜テストの一連工程を担当</span>
+                  <span data-lang-text="en" class="is-hidden">Own requirements, UI design, implementation, and testing</span>
+                </li>
+                <li>
+                  <span data-lang-text="ja">ネイティブアプリ内Webviewで動くSPA、BFF（API）連携、UI設計の実務経験</span>
+                  <span data-lang-text="en" class="is-hidden">
+                    Experience with native-app Webview SPAs, BFF (API) integration, and UI design
+                  </span>
+                </li>
+              </ul>
+            </article>
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">担当経験</span>
+                <span data-lang-text="en" class="is-hidden">Responsibilities</span>
+              </h4>
+              <ul>
+                <li>
+                  <span data-lang-text="ja">入力画面・一覧画面の設計と実装</span>
+                  <span data-lang-text="en" class="is-hidden">Designed and implemented form and list screens</span>
+                </li>
+                <li>
+                  <span data-lang-text="ja">共通コンポーネント・共通ユーティリティ関数の設計と整備</span>
+                  <span data-lang-text="en" class="is-hidden">
+                    Built shared components and utility functions
+                  </span>
+                </li>
+                <li>
+                  <span data-lang-text="ja">UI/UX改善、コードレビュー、ジュニア支援</span>
+                  <span data-lang-text="en" class="is-hidden">
+                    UI/UX improvements, code reviews, and junior support
+                  </span>
+                </li>
+              </ul>
+            </article>
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">協業</span>
+                <span data-lang-text="en" class="is-hidden">Collaboration</span>
+              </h4>
+              <ul>
+                <li>
+                  <span data-lang-text="ja">デザイナー、バックエンド、ネイティブアプリとの連携</span>
+                  <span data-lang-text="en" class="is-hidden">
+                    Worked with designers, backend engineers, and native app teams
+                  </span>
+                </li>
+                <li>
+                  <span data-lang-text="ja">オフショア拠点とのコミュニケーション・運用移行</span>
+                  <span data-lang-text="en" class="is-hidden">
+                    Coordinated with offshore teams and supported operations transition
+                  </span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="skills">
+          <h3>
+            <span data-lang-text="ja">技術・スキル</span>
+            <span data-lang-text="en" class="is-hidden">Skills</span>
+          </h3>
+          <div class="grid">
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">言語</span>
+                <span data-lang-text="en" class="is-hidden">Languages</span>
+              </h4>
+              <ul>
+                <li>TypeScript / JavaScript</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">フレームワーク / ライブラリ</span>
+                <span data-lang-text="en" class="is-hidden">Frameworks / Libraries</span>
+              </h4>
+              <ul>
+                <li>React / Vue.js</li>
+                <li>Jest / Vitest</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">工程・業務スキル</span>
+                <span data-lang-text="en" class="is-hidden">Process / Responsibilities</span>
+              </h4>
+              <ul>
+                <li>
+                  <span data-lang-text="ja">要件定義 / 画面設計 / BFF（API）外部設計</span>
+                  <span data-lang-text="en" class="is-hidden">
+                    Requirements / UI design / BFF (API) external design
+                  </span>
+                </li>
+                <li>
+                  <span data-lang-text="ja">実装 / テスト / コードレビュー</span>
+                  <span data-lang-text="en" class="is-hidden">
+                    Implementation / testing / code review
+                  </span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="work">
+          <h3>
+            <span data-lang-text="ja">プロジェクト経験</span>
+            <span data-lang-text="en" class="is-hidden">Project Summary</span>
+          </h3>
+          <div class="card">
+            <ul class="timeline">
               <li>
-                <a href="https://www.kumamoto-u.ac.jp/">
-                  熊本大学大学院 自然科学教育部 情報電気工学専攻
-                </a>
-                博士前期課程2年
+                <span data-lang-text="ja">保険・金融・小売・通信など複数業界のWebシステムに参画</span>
+                <span data-lang-text="en" class="is-hidden">
+                  Contributed to web systems across insurance, finance, retail, and telecom
+                </span>
               </li>
-              <li><a href="http://saga-lab.org/">フュージングインタラクション研究室</a></li>
               <li>
-                <a href="https://sites.google.com/view/kuma-vr/home">
-                  Kumamoto university Metaverse Architect (KuMA)
-                </a>
+                <span data-lang-text="ja">ネイティブアプリ内Webviewで動くSPAの新規開発・刷新、入力系UIの設計/実装を担当</span>
+                <span data-lang-text="en" class="is-hidden">
+                  Built and refreshed native-app Webview SPAs and implemented data-entry UIs
+                </span>
+              </li>
+              <li>
+                <span data-lang-text="ja">UI/UX改善、共通部品化、共通ユーティリティ関数の整備で品質と効率を向上</span>
+                <span data-lang-text="en" class="is-hidden">
+                  Improved UI/UX and built shared components and utilities to boost quality and efficiency
+                </span>
+              </li>
+              <li>
+                <span data-lang-text="ja">運用移行・オフショア連携など運用面の整備にも対応</span>
+                <span data-lang-text="en" class="is-hidden">
+                  Supported operations transition and offshore collaboration
+                </span>
               </li>
             </ul>
-          </article>
-          <article class="card">
-            <h4>所属学会</h4>
-            <ul>
-              <li><a href="https://www.ipsj.or.jp/">情報処理学会</a></li>
-              <li><a href="https://vrsj.org/">日本バーチャルリアリティ学会</a></li>
+          </div>
+        </section>
+      </div>
+
+      <div
+        id="student-view"
+        class="is-hidden"
+        role="tabpanel"
+        aria-labelledby="tab-student"
+        aria-hidden="true"
+      >
+        <section class="section" id="student">
+          <h3>
+            <span data-lang-text="ja">学生・研究</span>
+            <span data-lang-text="en" class="is-hidden">Education & Research</span>
+          </h3>
+          <div class="grid">
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">所属・活動</span>
+                <span data-lang-text="en" class="is-hidden">Affiliations</span>
+              </h4>
+              <ul>
+                <li>
+                  <a href="https://www.kumamoto-u.ac.jp/">
+                    <span data-lang-text="ja">熊本大学大学院 自然科学教育部 情報電気工学専攻</span>
+                    <span data-lang-text="en" class="is-hidden">
+                      Kumamoto University Graduate School, Dept. of Computer & Electrical Engineering
+                    </span>
+                  </a>
+                  <span data-lang-text="ja">博士前期課程</span>
+                  <span data-lang-text="en" class="is-hidden">Master's Program</span>
+                </li>
+                <li>
+                  <a href="http://saga-lab.org/">
+                    <span data-lang-text="ja">フュージングインタラクション研究室</span>
+                    <span data-lang-text="en" class="is-hidden">Fusing Interaction Laboratory</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://sites.google.com/view/kuma-vr/home">
+                    Kumamoto university Metaverse Architect (KuMA)
+                  </a>
+                </li>
+              </ul>
+            </article>
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">研究キーワード</span>
+                <span data-lang-text="en" class="is-hidden">Research Keywords</span>
+              </h4>
+              <p>
+                <span data-lang-text="ja">
+                  触覚・聴覚を交差させた身体感覚の拡張、空気噴流インタフェース、
+                  没入型VR体験。
+                </span>
+                <span data-lang-text="en" class="is-hidden">
+                  Extending bodily sensations by combining haptics and audio, air-jet interfaces,
+                  and immersive VR experiences.
+                </span>
+              </p>
+              <div class="tag-list">
+                <span class="tag">
+                  <span data-lang-text="ja">触覚</span>
+                  <span data-lang-text="en" class="is-hidden">Haptics</span>
+                </span>
+                <span class="tag">
+                  <span data-lang-text="ja">聴覚</span>
+                  <span data-lang-text="en" class="is-hidden">Audio</span>
+                </span>
+                <span class="tag">
+                  <span data-lang-text="ja">VR</span>
+                  <span data-lang-text="en" class="is-hidden">VR</span>
+                </span>
+                <span class="tag">
+                  <span data-lang-text="ja">インタフェース</span>
+                  <span data-lang-text="en" class="is-hidden">Interface</span>
+                </span>
+              </div>
+            </article>
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">所属学会</span>
+                <span data-lang-text="en" class="is-hidden">Academic Societies</span>
+              </h4>
+              <ul>
+                <li>
+                  <a href="https://www.ipsj.or.jp/">
+                    <span data-lang-text="ja">情報処理学会</span>
+                    <span data-lang-text="en" class="is-hidden">Information Processing Society of Japan</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://vrsj.org/">
+                    <span data-lang-text="ja">日本バーチャルリアリティ学会</span>
+                    <span data-lang-text="en" class="is-hidden">Virtual Reality Society of Japan</span>
+                  </a>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="publications">
+          <h3>
+            <span data-lang-text="ja">文献情報</span>
+            <span data-lang-text="en" class="is-hidden">Publications</span>
+          </h3>
+          <div class="grid">
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">国際会議（査読あり）</span>
+                <span data-lang-text="en" class="is-hidden">International Conferences (Peer-Reviewed)</span>
+              </h4>
+              <ol>
+                <li>
+                  <b><u>Akinari Shibao</u></b>, Satoshi Saga.<br />
+                  <a
+                    href="https://s3-us-west-2.amazonaws.com/ieeeshutpages/xplore/xplore-shut-page.html"
+                  >
+                    Presenting non-audible vibrations of music by oscillative air jet
+                  </a>
+                  <br />
+                  World Haptics Conference 2021: Work in Progress, July 2021
+                </li>
+              </ol>
+            </article>
+            <article class="card">
+              <h4>
+                <span data-lang-text="ja">国内会議</span>
+                <span data-lang-text="en" class="is-hidden">Domestic Conferences</span>
+              </h4>
+              <ol>
+                <li>
+                  時枝 朋史，石丸 嵩也，<b><u>柴尾 亮成</u></b>，木本 涼太郎，早田 颯斗，
+                  松島 周平，下村 夏生，井石 有美，内田 玲那，ハニフ フェルマンダ プトラ<br />
+                  <a href="http://conference.vrsj.org/ac2021/program/doc/IVRC-11.pdf">
+                    夢のもふもふ
+                  </a>
+                  <br />
+                  第26回日本バーチャルリアリティ学会大会 IVRC-11，2021年9月
+                </li>
+                <li>
+                  <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
+                  <a href="http://conference.vrsj.org/ac2021/program/doc/1B2-5.pdf">
+                    空気噴流による音楽の低周波振動再現性の検証
+                  </a>
+                  <br />
+                  第26回日本バーチャルリアリティ学会大会，2021年9月
+                </li>
+                <li>
+                  <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
+                  空気噴流による臨場感の向上のための出力口径変化の検討<br />
+                  ロボティクス・メカトロニクス 講演会 2021，2021年5月
+                </li>
+                <li>
+                  <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
+                  揺動空気噴流による触覚提示手法の基礎検討<br />
+                  第25回日本バーチャルリアリティ学会大会，2020年9月
+                </li>
+                <li>
+                  <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
+                  <a href="http://conference.vrsj.org/ac2020/program/doc/2D3-4_PR0164.pdf">
+                    揺動空気噴流を用いた臨場感再現手法の評価
+                  </a>
+                  <br />
+                  ロボティクス・メカトロニクス 講演会 2020，2020年5月
+                </li>
+                <li>
+                  <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
+                  揺動空気噴流を用いた臨場感提示手法の提案<br />
+                  第24回ハプティクス研究会，2020年3月
+                </li>
+              </ol>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="career">
+          <h3>
+            <span data-lang-text="ja">略歴</span>
+            <span data-lang-text="en" class="is-hidden">Timeline</span>
+          </h3>
+          <div class="card">
+            <ul class="timeline">
+              <li>
+                <span data-lang-text="ja">2013年 熊本県立玉名高等学校 普通科 入学</span>
+                <span data-lang-text="en" class="is-hidden">2013 Entered Tamana High School, General Course</span>
+              </li>
+              <li>
+                <span data-lang-text="ja">2016年 同上 卒業</span>
+                <span data-lang-text="en" class="is-hidden">2016 Graduated from Tamana High School</span>
+              </li>
+              <li>
+                <span data-lang-text="ja">2016年 熊本大学 工学部 情報電気電子工学科 入学</span>
+                <span data-lang-text="en" class="is-hidden">
+                  2016 Entered Kumamoto University, Dept. of Computer & Electrical Engineering
+                </span>
+              </li>
+              <li>
+                <span data-lang-text="ja">2020年 同上 卒業</span>
+                <span data-lang-text="en" class="is-hidden">2020 Graduated from Kumamoto University</span>
+              </li>
+              <li>
+                <span data-lang-text="ja">
+                  2020年 熊本大学大学院 自然科学教育部 情報電気工学専攻 博士前期課程 入学
+                </span>
+                <span data-lang-text="en" class="is-hidden">
+                  2020 Entered Master's Program, Kumamoto University Graduate School
+                </span>
+              </li>
             </ul>
-          </article>
-          <article class="card" id="research">
-            <h4>研究キーワード</h4>
-            <p>
-              触覚・聴覚を交差させた身体感覚の拡張、空気噴流インタフェース、
-              没入型VR体験。
-            </p>
-            <div class="tag-list">
-              <span class="tag">触覚</span>
-              <span class="tag">聴覚</span>
-              <span class="tag">VR</span>
-              <span class="tag">インタフェース</span>
-            </div>
-          </article>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section class="section" id="publications">
-        <h3>文献情報</h3>
-        <p class="lead">代表的な国際会議・国内会議の実績を抜粋しています。</p>
-        <div class="grid">
-          <article class="card">
-            <h4>国際会議（査読あり）</h4>
+        <section class="section" id="teaching">
+          <h3>
+            <span data-lang-text="ja">ティーチングアシスタント（TA）</span>
+            <span data-lang-text="en" class="is-hidden">Teaching Assistant (TA)</span>
+          </h3>
+          <div class="card">
             <ol>
               <li>
-                <b><u>Akinari Shibao</u></b>, Satoshi Saga.<br />
-                <a
-                  href="https://s3-us-west-2.amazonaws.com/ieeeshutpages/xplore/xplore-shut-page.html"
-                >
-                  Presenting non-audible vibrations of music by oscillative air jet
-                </a>
-                <br />
-                World Haptics Conference 2021: Work in Progress, July 2021
+                <span data-lang-text="ja">
+                  熊本大学 教養教育「情報基礎A」<br />
+                  担当教員 中野 裕司，北村 士朗<br />2020年04月 ~ 2020年08月
+                </span>
+                <span data-lang-text="en" class="is-hidden">
+                  Kumamoto University Liberal Arts "Information Basics A"<br />
+                  Instructors: Yuji Nakano, Shiro Kitamura<br />Apr 2020 - Aug 2020
+                </span>
+              </li>
+              <li>
+                <span data-lang-text="ja">
+                  熊本大学 工学部「ものづくり入門実習」<br />
+                  担当教員 嵯峨 智，稲田 シュンコ<br />2020年04月 ~ 2020年08月
+                </span>
+                <span data-lang-text="en" class="is-hidden">
+                  Kumamoto University Faculty of Engineering "Intro to Monozukuri"<br />
+                  Instructors: Satoshi Saga, Shunko Inada<br />Apr 2020 - Aug 2020
+                </span>
+              </li>
+              <li>
+                <span data-lang-text="ja">
+                  熊本大学 教養教育「情報基礎B」<br />
+                  担当教員 喜多 敏博<br />2020年09月 ~ 2021年02月
+                </span>
+                <span data-lang-text="en" class="is-hidden">
+                  Kumamoto University Liberal Arts "Information Basics B"<br />
+                  Instructor: Toshihiro Kita<br />Sep 2020 - Feb 2021
+                </span>
+              </li>
+              <li>
+                <span data-lang-text="ja">
+                  熊本大学 工学部「情報電気電子工学実験II (数値計算)」<br />
+                  担当教員 嵯峨 智<br />2020年09月 ~ 2021年02月
+                </span>
+                <span data-lang-text="en" class="is-hidden">
+                  Kumamoto University "C.E.E. Experiment II (Numerical Computation)"<br />
+                  Instructor: Satoshi Saga<br />Sep 2020 - Feb 2021
+                </span>
+              </li>
+              <li>
+                <span data-lang-text="ja">
+                  熊本大学 工学部「フーリエ解析」<br />
+                  担当教員 嵯峨 智<br />2020年11月 ~ 2021年02月
+                </span>
+                <span data-lang-text="en" class="is-hidden">
+                  Kumamoto University "Fourier Analysis"<br />
+                  Instructor: Satoshi Saga<br />Nov 2020 - Feb 2021
+                </span>
               </li>
             </ol>
-          </article>
-          <article class="card">
-            <h4>国内会議</h4>
-            <ol>
-              <li>
-                時枝 朋史，石丸 嵩也，<b><u>柴尾 亮成</u></b>，木本 涼太郎，早田 颯斗，
-                松島 周平，下村 夏生，井石 有美，内田 玲那，ハニフ フェルマンダ プトラ<br />
-                <a href="http://conference.vrsj.org/ac2021/program/doc/IVRC-11.pdf">
-                  夢のもふもふ
-                </a>
-                <br />
-                第26回日本バーチャルリアリティ学会大会 IVRC-11，2021年9月
-              </li>
-              <li>
-                <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
-                <a href="http://conference.vrsj.org/ac2021/program/doc/1B2-5.pdf">
-                  空気噴流による音楽の低周波振動再現性の検証
-                </a>
-                <br />
-                第26回日本バーチャルリアリティ学会大会，2021年9月
-              </li>
-              <li>
-                <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
-                空気噴流による臨場感の向上のための出力口径変化の検討<br />
-                ロボティクス・メカトロニクス 講演会 2021，2021年5月
-              </li>
-              <li>
-                <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
-                揺動空気噴流による触覚提示手法の基礎検討<br />
-                第25回日本バーチャルリアリティ学会大会，2020年9月
-              </li>
-              <li>
-                <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
-                <a href="http://conference.vrsj.org/ac2020/program/doc/2D3-4_PR0164.pdf">
-                  揺動空気噴流を用いた臨場感再現手法の評価
-                </a>
-                <br />
-                ロボティクス・メカトロニクス 講演会 2020，2020年5月
-              </li>
-              <li>
-                <b><u>柴尾 亮成</u></b>，嵯峨 智<br />
-                揺動空気噴流を用いた臨場感提示手法の提案<br />
-                第24回ハプティクス研究会，2020年3月
-              </li>
-            </ol>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="career">
-        <h3>略歴</h3>
-        <p class="lead">学部入学から現在までの歩みをまとめています。</p>
-        <div class="card">
-          <ul class="timeline">
-            <li>2013年 熊本県立玉名高等学校 普通科 入学</li>
-            <li>2016年 同上 卒業</li>
-            <li>2016年 熊本大学 工学部 情報電気電子工学科 入学</li>
-            <li>2020年 同上 卒業</li>
-            <li>
-              2020年 熊本大学大学院 自然科学教育部 情報電気工学専攻 博士前期課程 入学
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="teaching">
-        <h3>Teaching Assistant (TA)</h3>
-        <p class="lead">担当した授業とサポート内容。</p>
-        <div class="card">
-          <ol>
-            <li>
-              熊本大学 教養教育「情報基礎A」<br />
-              担当教員 中野 裕司，北村 士朗<br />2020年04月 ~ 2020年08月
-            </li>
-            <li>
-              熊本大学 工学部「ものづくり入門実習」<br />
-              担当教員 嵯峨 智，稲田 シュンコ<br />2020年04月 ~ 2020年08月
-            </li>
-            <li>
-              熊本大学 教養教育「情報基礎B」<br />
-              担当教員 喜多 敏博<br />2020年09月 ~ 2021年02月
-            </li>
-            <li>
-              熊本大学 工学部「情報電気電子工学実験II (数値計算)」<br />
-              担当教員 嵯峨 智<br />2020年09月 ~ 2021年02月
-            </li>
-            <li>
-              熊本大学 工学部「フーリエ解析」<br />
-              担当教員 嵯峨 智<br />2020年11月 ~ 2021年02月
-            </li>
-          </ol>
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
 
       <section class="section" id="contact">
-        <h3>連絡先</h3>
-        <p class="lead">共同研究・プロジェクトのご相談はお気軽にどうぞ。</p>
+        <h3>
+          <span data-lang-text="ja">連絡先</span>
+          <span data-lang-text="en" class="is-hidden">Contact</span>
+        </h3>
         <div class="card">
           <p>
-            Email:
+            <span data-lang-text="ja">Email:</span>
+            <span data-lang-text="en" class="is-hidden">Email:</span>
             <a href="mailto:shibao@saga-lab.org">shibao@saga-lab.org</a>
           </p>
         </div>
@@ -241,5 +603,97 @@
         <div>© 2024 Akinari Shibao. All rights reserved.</div>
       </footer>
     </div>
+    <script>
+      const toggleButtons = document.querySelectorAll(".toggle-button");
+      const viewContainers = {
+        "work-view": document.getElementById("work-view"),
+        "student-view": document.getElementById("student-view"),
+      };
+      const langButtons = document.querySelectorAll(".lang-button");
+      const langTexts = document.querySelectorAll("[data-lang-text]");
+
+      const setView = (target) => {
+        toggleButtons.forEach((button) => {
+          const isActive = button.dataset.target === target;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+        Object.entries(viewContainers).forEach(([key, container]) => {
+          if (!container) return;
+          const isHidden = key !== target;
+          container.classList.toggle("is-hidden", isHidden);
+          container.setAttribute("aria-hidden", isHidden ? "true" : "false");
+        });
+      };
+
+      const setLanguage = (lang) => {
+        const nextLang = lang === "en" ? "en" : "ja";
+        langButtons.forEach((button) => {
+          const isActive = button.dataset.lang === nextLang;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+        langTexts.forEach((text) => {
+          text.classList.toggle("is-hidden", text.dataset.langText !== nextLang);
+        });
+        document.documentElement.lang = nextLang;
+        try {
+          localStorage.setItem("site-lang", nextLang);
+        } catch (error) {
+          // Ignore storage errors (private mode).
+        }
+      };
+
+      const hashToView = {
+        "#student": "student-view",
+        "#publications": "student-view",
+        "#career": "student-view",
+        "#teaching": "student-view",
+      };
+
+      const applyHashView = (hash) => {
+        const target = hashToView[hash] || "work-view";
+        setView(target);
+      };
+
+      const loadInitialLang = () => {
+        let storedLang = null;
+        try {
+          storedLang = localStorage.getItem("site-lang");
+        } catch (error) {
+          storedLang = null;
+        }
+        if (storedLang) return storedLang;
+        return navigator.language && navigator.language.toLowerCase().startsWith("en")
+          ? "en"
+          : "ja";
+      };
+
+      toggleButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setView(button.dataset.target);
+        });
+      });
+
+      document.querySelectorAll("a[data-view]").forEach((link) => {
+        link.addEventListener("click", () => {
+          const target = link.dataset.view;
+          if (target) setView(target);
+        });
+      });
+
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setLanguage(button.dataset.lang);
+        });
+      });
+
+      window.addEventListener("hashchange", () => {
+        applyHashView(window.location.hash);
+      });
+
+      setLanguage(loadInitialLang());
+      applyHashView(window.location.hash);
+    </script>
   </body>
 </html>
